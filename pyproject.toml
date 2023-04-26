@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.2", "wheel", "build>=0.8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+description = "Save File Editor for Tecmo's Project Zero - (the first one) for the PS2"
+name = "ProjectZeroSaveEditor"
+version = "1.0"
+authors = [{ name = "karas84" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: MIT",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.9"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.urls]
+Homepage = "https://github.com/karas84/ProjectZeroSaveEditor"
+
+[project.scripts]
+zsaved = "zerosaved.main:main"
+
+[tool.setuptools]
+include-package-data = true
+package-dir = { "" = "." }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["zerosaved"]
+namespaces = true
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+
+[tool.ruff]
+line-length = 120
